@@ -30,7 +30,7 @@
             </div>
         </div>
         <main id="mainContent">
-            <div class="statsTurn">
+            <div class="stats">
                 <div class="turn">{{turn}}</div>
                 <div class="winner">{{xWinner}}</div>
                 <div class="status" v-if="status == 'X'"
@@ -44,7 +44,7 @@
                     <h1 id="symbol">{{ square }}</h1>
                 </div>
             </div>
-            <div class="statsTurn">
+            <div class="stats">
                 <div class="turn">{{turn}}</div>
                 <div class="winner">{{yWinner}}</div>
                 <div class="status" v-if="status == 'O'"
@@ -52,7 +52,7 @@
                 <div class="draw" v-if="status === 'Draw!'">{{ status }}</div>
             </div>
         </main>
-        <button id="rstAllButton" @click="resetAll">RESET ALL</button>
+        <button id="rstAllButton" @click="resetAll">RESTART</button>
         <button id="resetButton" @click="reset" :class="{ 'disabled-button': nextRoundDisabled }" :disabled="nextRoundDisabled">NEXT ROUND</button>
         <audio ref="cross" src="assets/audio/mixkit-arcade-game-jump-coin-216.wav"></audio>
         <audio ref="circle" src="assets/audio/mixkit-click-melodic-tone-1129.wav"></audio>

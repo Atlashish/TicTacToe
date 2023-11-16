@@ -112,6 +112,10 @@ body {
     color: rgb(108, 102, 102);
 }
 
+.disabled-button:hover{
+    cursor: default;
+}
+
 #resetButton:not([disabled]) {
     font-size: 30px;
     width: 230px;
@@ -124,15 +128,24 @@ body {
     color: white;
 }
 
-#rstAllButton:hover, #resetButton:hover {
-    background-color: rgb(189, 189, 189);
+#resetButton:not([disabled]):hover{
+    cursor: pointer;
+    background-color: rgb(0, 102, 142);
 }
 
-#rstAllButton:active, #resetButton:active{
-    background-color: white;
+#resetButton:not([disabled]):active{
+    background-color: skyblue;
 }
 
-@media screen and (max-width: 710px) {
+#rstAllButton:hover{
+    background-color: rgb(141, 1, 1);
+}
+
+#rstAllButton:active{
+    background-color: rgb(250, 43, 43);
+}
+
+@media screen and (max-width: 1000px) {
 
     #titleContainer {
         align-items: baseline;
