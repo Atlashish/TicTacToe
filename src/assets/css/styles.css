@@ -187,10 +187,11 @@ body {
     .winner,
     .draw {
         font-size: 8px;
+        width: auto;
     }
 
-    #resetButton, #rstAllButton {
-        font-size: 15px;
+    .disabled-button,#resetButton:not([disabled]), #rstAllButton {
+        font-size: 10px;
         width: 100px;
         margin-top: 20px;
     }
