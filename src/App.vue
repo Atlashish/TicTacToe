@@ -1,20 +1,12 @@
 <template>
     <Title :xWinnerCounter="xWinnerCounter" :yWinnerCounter="yWinnerCounter" />
-
     <GameBoard :turn="turn" :xWinner="xWinner" :yWinner="yWinner" :status="status" :squares="squares"
         @handleClick="handleClick" />
-
     <Buttons :nextRoundDisabled="nextRoundDisabled" @reset="reset" @resetAll="resetAll" />
-
-
-    <!-- <audio ref="cross" src="./src/assets/audio/mixkit-arcade-game-jump-coin-216.wav"></audio>
-    <audio ref="circle" src="./src/assets/audio/mixkit-click-melodic-tone-1129.wav"></audio>
-    <audio ref="rst" src="./src/assets/audio/mixkit-game-click-1114.wav"></audio>
-    <audio ref="rstAll" src="./src/assets/audio/mixkit-opening-software-interface-2578.wav"></audio> -->
-    
 </template>
   
 <script>
+import { useSound } from '@vueuse/sound'
 import Buttons from './components/Buttons.vue'
 import GameBoard from './components/GameBoard.vue'
 import Title from './components/Title.vue'
@@ -24,6 +16,19 @@ export default {
         Buttons,
         GameBoard,
         Title
+    },
+    setup() {
+        const { play: playXSound } = useSound('./src/assets/audio/mixkit-arcade-game-jump-coin-216.wav');
+        const { play: playOSound } = useSound('./src/assets/audio/mixkit-click-melodic-tone-1129.wav');
+        const { play: playReset  } = useSound('./src/assets/audio/mixkit-game-click-1114.wav')
+        const { play: playResetAll  } = useSound('./src/assets/audio/mixkit-opening-software-interface-2578.wav')
+
+        return {
+      playXSound,
+      playOSound,
+      playReset,
+      playResetAll
+    };
     },
     data() {
         return {
@@ -46,13 +51,9 @@ export default {
 
             this.squares[index] = (this.xIsNext ? 'X' : 'O');
             if (this.squares[index] == 'X') {
-                // this.$refs.cross.pause();
-                // this.$refs.cross.currentTime = 0
-                // this.$refs.cross.play()
+                this.playXSound();
             } else {
-                // this.$refs.circle.pause();
-                // this.$refs.circle.currentTime = 0
-                // this.$refs.circle.play()
+                this.playOSound();
             }
 
             this.xIsNext = !this.xIsNext;
@@ -90,9 +91,7 @@ export default {
             this.xWinner = ''
             this.yWinner = ''
             this.winner = '',
-                // this.$refs.rst.pause();
-                // this.$refs.rst.currentTime = 0
-                // this.$refs.rst.play()
+                this.playReset();
 
                 this.nextRoundDisabled = true
         },
@@ -105,9 +104,7 @@ export default {
             this.winner = '',
                 this.xWinnerCounter = 0
             this.yWinnerCounter = 0
-            // this.$refs.rstAll.pause();
-            // this.$refs.rstAll.currentTime = 0
-            // this.$refs.rstAll.play()
+            this.playResetAll();
 
             this.nextRoundDisabled = true
         }
