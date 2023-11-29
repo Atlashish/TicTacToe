@@ -5,10 +5,10 @@
             @handleClick="handleClick" />
     </main>
     <Buttons :nextRoundDisabled="nextRoundDisabled" @reset="reset" @resetAll="resetAll" />
-    <audio ref="cross" src="@/assets/audio/mixkit-arcade-game-jump-coin-216.wav"></audio>
-    <audio ref="circle" src="@/assets/audio/mixkit-click-melodic-tone-1129.wav"></audio>
-    <audio ref="rst" src="@/assets/audio/mixkit-game-click-1114.wav"></audio>
-    <audio ref="rstAll" src="@/assets/audio/mixkit-opening-software-interface-2578.wav"></audio>
+    <audio ref="cross" src="./src/assets/audio/mixkit-arcade-game-jump-coin-216.wav"></audio>
+    <audio ref="circle" src="./src/assets/audio/mixkit-click-melodic-tone-1129.wav"></audio>
+    <audio ref="rst" src="./src/assets/audio/mixkit-game-click-1114.wav"></audio>
+    <audio ref="rstAll" src="./src/assets/audio/mixkit-opening-software-interface-2578.wav"></audio>
 </template>
   
 <script>
