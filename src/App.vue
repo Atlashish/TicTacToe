@@ -18,10 +18,10 @@ export default {
         Title
     },
     setup() {
-        const { play: playXSound } = useSound('./src/assets/audio/mixkit-arcade-game-jump-coin-216.wav');
-        const { play: playOSound } = useSound('./src/assets/audio/mixkit-click-melodic-tone-1129.wav');
-        const { play: playReset  } = useSound('./src/assets/audio/mixkit-game-click-1114.wav')
-        const { play: playResetAll  } = useSound('./src/assets/audio/mixkit-opening-software-interface-2578.wav')
+        const { play: playXSound } = useSound('@/assets/audio/mixkit-arcade-game-jump-coin-216.wav');
+        const { play: playOSound } = useSound('@/assets/audio/mixkit-click-melodic-tone-1129.wav');
+        const { play: playReset  } = useSound('@/assets/audio/mixkit-game-click-1114.wav')
+        const { play: playResetAll  } = useSound('@/assets/audio/mixkit-opening-software-interface-2578.wav')
 
         return {
       playXSound,
